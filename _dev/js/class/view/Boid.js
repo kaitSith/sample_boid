@@ -5,14 +5,14 @@ export default class Boid{
     this.NUM_BOIDS = 100;
     this.BOID_SIZE = 5;
     this.MAX_SPEED = 7;
-    this.canvas = document.getElementById(elm);
-    this.ctx = this.canvas.getContext('2d');
     this.boids = [];
     this.init();
   }
   init(){
   	var me = this;
-    me.canvas.width = me.canvas.height = me.SCREEN_SIZE;
+    var canvas = document.getElementById(elm);
+    canvas.width = canvas.height = me.SCREEN_SIZE;
+    me.ctx = canvas.getContext('2d');
     me.ctx.fillStyle = 'rgba(33, 33, 33, 0.8)';
     for(var i = 0; i < me.NUM_BOIDS; i++){
       me.boids[i] = {
